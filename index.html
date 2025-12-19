@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Neyab Tasheeen</title>
+    <style>
+        /* --- CORE STYLES --- */
+        :root {
+            /* Warm, happy pastel gradient */
+            --bg-gradient: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-color: #4a4a4a;
+            --accent-color: #ff8fa3;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-family: var(--font-main);
+            background: var(--bg-gradient);
+            color: var(--text-color);
+        }
+
+        /* --- BACKGROUND ANIMATION CONTAINER --- */
+        #emoji-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Let clicks pass through */
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        /* --- MAIN CONTENT CARD --- */
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            animation: cardEntrance 1.5s ease-out;
+        }
+
+        /* --- TYPOGRAPHY & TEXT ANIMATIONS --- */
+        h1 {
+            color: #d81b60;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0px rgba(255,200,200,0.5);
+            animation: bounceIn 1.5s ease;
+        }
+
+        p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+            opacity: 0; /* Hidden initially */
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        /* Staggered animation delays for flow */
+        p:nth-of-type(1) { animation-delay: 0.5s; }
+        p:nth-of-type(2) { animation-delay: 1.5s; }
+        p:nth-of-type(3) { animation-delay: 2.5s; }
+        
+        .highlight {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .closing {
+            margin-top: 30px;
+            font-style: italic;
+            color: #888;
+            font-size: 0.95rem;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 3.5s;
+        }
+
+        /* --- APOLOGY BUTTON --- */
+        .surprise-btn {
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            border: none;
+            padding: 18px 32px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 100, 100, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 15px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 3.0s;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 100, 100, 0.4);
+        }
+
+        .surprise-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* --- KEYFRAMES --- */
+        @keyframes cardEntrance {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Floating Emoji Styles (Added via JS) */
+        .floating-emoji {
+            position: absolute;
+            bottom: -50px;
+            font-size: 24px;
+            animation-name: floatUp, sway;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: 1, infinite;
+            opacity: 0.8;
+            user-select: none;
+        }
+
+        @keyframes floatUp {
+            to { bottom: 110vh; opacity: 0; }
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateX(0px) rotate(0deg); }
+            50% { transform: translateX(25px) rotate(15deg); }
+        }
+
+        /* Mobile Response */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .card { padding: 25px; margin: 15px; }
+            p { font-size: 1rem; }
+            .surprise-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="emoji-container"></div>
+
+    <div class="container">
+        <div class="card">
+            <header>
+                <h1>Happy Birthday Neyab Tasheeen 🎂🎉</h1>
+            </header>
+
+            <section class="message">
+                <p>
+                    I know I’m a little late, and I am honestly so sorry! 🙈 Work has been absolutely crazy lately, but that’s no excuse for missing your special day.
+                </p>
+                
+                <p>
+                    But please know this: <span class="highlight">I didn't want to just send a quick, simple text.</span> Fast is easy, but you deserve better. I wanted to take the time to build something special, just to show that our friendship really matters to me.
+                </p>
+
+                <p>
+                    I hope your year ahead is full of color, laughter, and success. You are a wonderful friend.
+                </p>
+
+                <button class="surprise-btn" onclick="celebrate()">I really am sorry! 🥺 (Tap me)</button>
+            </section>
+
+            <footer class="closing">
+                You matter. Your day matters.<br><br>
+                Made with effort, care, and friendship 💛
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const emojiContainer = document.getElementById('emoji-container');
+        // A mix of celebration and friendly love
+        const emojis = ['🎈', '🎂', '🎉', '💖', '✨', '🌸', '😊', '🦋', '🎁', '🥺', '💛'];
+
+        // 1. Function to create a floating emoji
+        function createEmoji(isBurst = false) {
+            const emoji = document.createElement('div');
+            emoji.classList.add('floating-emoji');
+            emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+            // Random horizontal start position
+            const leftPos = Math.random() * 100; 
+            emoji.style.left = leftPos + 'vw';
+
+            // Random Size
+            const size = Math.random() * 1.5 + 1; 
+            emoji.style.fontSize = size + 'rem';
+
+            // Random Speed
+            // Bursts are faster, background drift is slower
+            const duration = isBurst ? (Math.random() * 2 + 2) : (Math.random() * 5 + 6); 
+            emoji.style.animationDuration = `${duration}s, 3s`; 
+
+            // Add to DOM
+            emojiContainer.appendChild(emoji);
+
+            // Cleanup after animation
+            setTimeout(() => {
+                emoji.remove();
+            }, duration * 1000);
+        }
+
+        // 2. Start the gentle background flow immediately
+        setInterval(() => createEmoji(false), 800);
+
+        // 3. Button Click Event
+        function celebrate() {
+            // Trigger a massive burst of happiness
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    createEmoji(true);
+                }, i * 50); // Fast stagger
+            }
+
+            // Change button text to show warmth after the apology
+            const btn = document.querySelector('.surprise-btn');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Hope this makes you smile! 💖";
+            btn.style.transform = "scale(1.05)";
+            btn.style.background = "linear-gradient(45deg, #a18cd1 0%, #fbc2eb 100%)"; // Change color to soft purple
+            
+            // Disable button briefly so they read the message
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerText = "Still sorry though! 🥺💛";
+                btn.disabled = false;
+                btn.style.transform = "scale(1)";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
